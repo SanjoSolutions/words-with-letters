@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Words with letters</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      h2 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      #result {
+        white-space: pre-line;
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h2>Words with letters</h2>
+      <input id="letters" type="text" autofocus>
+      <button type="submit">Find</button>
+      <button id="findWithAllCharacters" type="button">Find with all characters</button>
+    </form>
+    <div id="result"></div>
+    <script type="module" src="index.js"></script>
+    <script type="module">
+      import { generateSearchTree, findWordsThatCanBeMadeOutOfCharacters, findWordsWithCharacters } from './index.js'
+      import { words } from './words.js'
+
+      const searchTree = generateSearchTree(words)
+
+      const $form = document.querySelector('form')
+      const $letters = document.querySelector('#letters')
+      const $result = document.querySelector('#result')
+      $form.addEventListener('submit', function onSubmit(event) {
+        event.preventDefault()
+
+        const characters = $letters.value.split('')
+        const words = findWordsThatCanBeMadeOutOfCharacters(searchTree, characters)
+        $result.textContent = words.join('\n')
+      })
+
+      const $findWithAllCharacters = document.querySelector('#findWithAllCharacters')
+      $findWithAllCharacters.addEventListener('click', function onFindWithAllCharacters() {
+        event.preventDefault()
+
+        const characters = $letters.value.split('')
+        const words = findWordsWithCharacters(searchTree, characters)
+        $result.textContent = words.join('\n')
+      })
+    </script>
+  </body>
+</html>
