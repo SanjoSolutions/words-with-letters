@@ -3,6 +3,7 @@
 This work is devoted to God.
 
 Can be used for "Microsoft Ultimate Word Games - Word Twister".
+Currently only has a German word list.
 
 [Try it here](https://sanjosolutions.github.io/words-with-letters/)
 
