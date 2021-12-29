@@ -4,6 +4,8 @@ This work is devoted to God.
 
 Can be used for "Microsoft Ultimate Word Games - Word Twister".
 
+[Try it here](https://sanjosolutions.github.io/words-with-letters/)
+
 ## References
 
 The word list is based on [Free German Dictionary](https://sourceforge.net/projects/germandict/) by Jan Schreiber, 
