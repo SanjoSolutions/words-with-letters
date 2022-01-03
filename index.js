@@ -51,12 +51,8 @@ export function findWordsWithCharacters(searchTree, characters) {
 export function findWordsThatCanBeMadeOutOfCharacters(searchTree, characters) {
   characters = characters.map(character => character.toLowerCase())
   const combinations = Array.from(generateCombinations(characters)).filter(sequence => sequence.length >= 3)
-  const words = unique(flatten(combinations.map(characters => findWordsWithCharacters(searchTree, Array.from(characters)))))
+  const words = unique(combinations.flatMap(characters => findWordsWithCharacters(searchTree, Array.from(characters))))
   return words
-}
-
-function flatten(arrays) {
-  return [].concat(...arrays)
 }
 
 function unique(values) {
